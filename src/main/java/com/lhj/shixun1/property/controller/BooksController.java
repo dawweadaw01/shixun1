@@ -10,11 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
 
-/**
- * @Description BooksController
- * @Author JiangHu
- * @Date 2023/2/14 16:06
- */
+
 @RestController
 @RequestMapping("/api/economy")
 public class BooksController {
