@@ -5,9 +5,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class Shixun1ApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
+    @Test
+    void contextLoads() {
+        System.out.println("Hello World!");
+    }
 }
