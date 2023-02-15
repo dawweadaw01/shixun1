@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.ResourceUtils;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -13,8 +14,27 @@ import javax.annotation.Resource;
 @Configuration
 @AutoConfigureAfter(WebMvcConfigurer.class)
 public class WebMvcConfig implements WebMvcConfigurer {
-    @Autowired
+    @Resource
     private ResourceBean resourceBean;
+
+    /**
+     * 跨域配置
+     * @param registry
+     */
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOriginPatterns("*")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true)
+                .maxAge(3600);
+    }
+
+    /**
+     * 配置静态资源
+     * @param registry
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         String os = System.getProperty("os.name");
@@ -27,5 +47,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
                     .addResourceLocations(ResourceUtils.FILE_URL_PREFIX +
                             resourceBean.getLinuxLocation());
         }
+
     }
 }

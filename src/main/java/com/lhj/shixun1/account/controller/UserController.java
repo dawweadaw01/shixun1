@@ -64,4 +64,6 @@ public class UserController {
     public PageInfo<User> getUserBySearch(@RequestBody Search search) {
         return userService.getUserBySearch(search);
     }
+
+
 }

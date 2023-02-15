@@ -15,7 +15,14 @@ public enum ImageType {
     public int width;
     public int height;
     public int size;
-
+    public static ImageType getImageTypeByName(String name) {
+        for (ImageType imageType : ImageType.values()) {
+            if (imageType.name.equals(name)) {
+                return imageType;
+            }
+        }
+        return null;
+    }
     ImageType(String name, int width, int height, int size) {
         this.name = name;
         this.width = width;
