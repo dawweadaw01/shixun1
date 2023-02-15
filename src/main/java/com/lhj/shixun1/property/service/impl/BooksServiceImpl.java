@@ -1,8 +1,11 @@
 package com.lhj.shixun1.property.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lhj.shixun1.account.dao.UserDao;
 import com.lhj.shixun1.account.entity.User;
 import com.lhj.shixun1.common.vo.Result;
+import com.lhj.shixun1.common.vo.Search;
 import com.lhj.shixun1.property.dao.BooksDao;
 import com.lhj.shixun1.property.entity.Books;
 import com.lhj.shixun1.property.dao.BooksUserDao;
@@ -89,17 +92,26 @@ public class BooksServiceImpl implements BooksService {
     @Override
     public Books getBooksById(int id) {
         // 查询 books 对象
-        Books books = booksDao.getBooksById(id);
-        // 查询 members 列表
-        List<User> members = Optional
-                .ofNullable(userDao.getUsersByBooksId(id))
-                .orElse(Collections.emptyList());
-        // 组装返回
-        if (books != null) {
-            books.setMembers(members);
-        }
+//        Books books = booksDao.getBooksById(id);
+//        // 查询 members 列表
+//        List<User> members = Optional
+//                .ofNullable(userDao.getUsersByBooksId(id))
+//                .orElse(Collections.emptyList());
+//        // 组装返回
+//        if (books != null) {
+//            books.setMembers(members);
+//        }
 
         // TODO 包装进出、余额数据
-        return books;
+        return booksDao.getBooksById(id);
+    }
+
+    @Override
+    public PageInfo<Books> getBooksBySearch(Search search) {
+        search.initSearch();
+        PageHelper.startPage(search.getCurrentPage(), search.getPageSize());
+        return new  PageInfo<>(Optional
+                .ofNullable(booksDao.getBooksBySearch(search))
+                .orElse(Collections.emptyList()));
     }
 }

@@ -1,6 +1,8 @@
 package com.lhj.shixun1.property.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.lhj.shixun1.common.vo.Result;
+import com.lhj.shixun1.common.vo.Search;
 import com.lhj.shixun1.property.entity.Books;
 import com.lhj.shixun1.property.service.BooksService;
 import org.apache.ibatis.annotations.Delete;
@@ -51,5 +53,15 @@ public class BooksController {
     @GetMapping(value = "/books/{id}")
     public Books getBooksById(@PathVariable int id) {
         return booksService.getBooksById(id);
+    }
+
+    /**
+     * 127.0.0.1/api/economy/booksList ---- post
+     * @param {"currentPage":1,"pageSize":5,"sort":"id","direction":"desc","keyword":""}
+     * @return
+     */
+    @PostMapping(value = "/booksList", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public PageInfo<Books> getBooksBySearch(@RequestBody Search search) {
+        return booksService.getBooksBySearch(search);
     }
 }
