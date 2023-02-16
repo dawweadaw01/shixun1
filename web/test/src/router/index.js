@@ -7,21 +7,21 @@ export default new Router({
 	mode: "history", // history 模式去除地址栏 # 号
 	routes: [
 		{
-			// http://127.0.0.1:8081/test/helloworld1
+			// http://127.0.0.1:8080/test/helloworld1
 			path: "/test/helloworld1",
 			name: "测试页1",
 			component: () => import("@/components/test/HelloWorld1.vue"),
 			meta: { requireAuth: false },
 		},
 		{
-			// http://127.0.0.1:8081/test/helloworld2
+			// http://127.0.0.1:8080/test/helloworld2
 			path: "/test/helloworld2",
 			name: "测试页2",
 			component: () => import("@/components/test/HelloWorld2.vue"),
 			meta: { requireAuth: false },
 		},
 		{
-			// http://127.0.0.1:8081/test/helloworld3
+			// http://127.0.0.1:8080/test/helloworld3
 			path: "/test/helloworld3",
 			name: "测试页3",
 			component: () => import("@/components/test/HelloWorld3.vue"),
@@ -29,7 +29,7 @@ export default new Router({
 		}
 		// 一级路由，渲染到 App.vue 中的 <router-view />
 		// {
-		// 	// http://127.0.0.1:8081/
+		// 	// http://127.0.0.1:8080/
 		// 	path: "/",
 		// 	name: "主页",
 		// 	component: () => import("@/components/Home.vue"),

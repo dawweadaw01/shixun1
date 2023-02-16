@@ -5,7 +5,7 @@ module.exports = defineConfig({
 	// 关闭语法检查
 	lintOnSave: false,
 	devServer: {
-		port: 8081,
+		port: 8080,
 	},
 	configureWebpack: {
 		plugins: [
