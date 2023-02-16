@@ -50,6 +50,8 @@ public class ImageServiceImpl implements ImageService {
         //获取文件名
         String fileName = String.format("%s.%s", System.currentTimeMillis(),
                 FileUtil.getFileType(mf.getOriginalFilename()));
+
+        //文件写入路径
         String destFile = String.format("%s/%s", destFolder, fileName);
         File df = new File(destFile);
 
