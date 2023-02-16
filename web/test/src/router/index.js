@@ -20,6 +20,13 @@ export default new Router({
 			component: () => import("@/components/test/HelloWorld2.vue"),
 			meta: { requireAuth: false },
 		},
+		{
+			// http://127.0.0.1:8081/test/helloworld3
+			path: "/test/helloworld3",
+			name: "测试页3",
+			component: () => import("@/components/test/HelloWorld3.vue"),
+			meta: { requireAuth: false },
+		}
 		// 一级路由，渲染到 App.vue 中的 <router-view />
 		// {
 		// 	// http://127.0.0.1:8081/
