@@ -14,11 +14,12 @@ export const webSiteInfo = {
 // 用户信息
 export const user = {
 	userId: 1,
-	userName: "jiangHu",
+	userName: "cxk",
+	password: "111111",
 	birthday: "1980-01-01",
 	gender: "female",
 	email: "hujiang@163.com",
-	userImage: "/img/default_big.jpg",
+	userImage: "/images/default.jpg",
 	role: "staff",
 	address: "四川成都成华区77号",
 	profession: "软件工程师",
@@ -46,3 +47,99 @@ export const banners = [
 	{ src: "/img/banner_02.jpg", url: "/course/2", subject: "课程2" },
 	{ src: "/img/banner_03.png", url: "/course/3", subject: "课程3" },
 ];
+// SideBar 测试数据
+export const navigationData = [
+	{
+		title: "系统首页",
+		path: "/index",
+		icon: "el-icon-setting",
+	},
+	{
+		title: "账户模块",
+		path: "/account",
+		icon: "el-icon-user-solid",
+		subItems: [
+			{
+				title: "个人主页",
+				path: "/account/profile",
+			},
+			{
+				title: "用户列表",
+				path: "/account/users",
+			},
+		],
+	},
+	{
+		title: "测试模块",
+		path: "/test",
+		icon: "el-icon-s-flag",
+		subItems: [
+			{
+				title: "你好世界1",
+				path: "/test/helloWorld1",
+			},
+			{
+				title: "你好世界2",
+				path: "/test/helloWorld2",
+			},
+		],
+	},
+];
+
+// 主页面板数据
+export const starData = [
+	[
+		{
+			icon: "el-icon-service",
+			title: "公司总员工数",
+			total: 198397,
+			bgColor: "#ebcc6f",
+		},
+		{
+			icon: "el-icon-location-outline",
+			title: "客户分布区域",
+			total: 19,
+			bgColor: "#3acaa9",
+		},
+		{
+			icon: "el-icon-star-off",
+			title: "收货好评",
+			total: 190857,
+			bgColor: "#67c4ed",
+		},
+	],
+	[
+		{
+			icon: "el-icon-edit-outline",
+			title: "历史订单数",
+			total: 9397,
+			bgColor: "#af84cb",
+		},
+		{
+			icon: "el-icon-share",
+			title: "产品总转发数量",
+			total: 9097,
+			bgColor: "#67c4ed",
+		},
+		{
+			icon: "el-icon-goods",
+			title: "产品总数",
+			total: 397,
+			bgColor: "#ebcc6f",
+		},
+	],
+];
+
+// 待做事列表、新闻列表
+export const todoList = [],
+	latestNewList = [];
+for (let i = 0; i < 5; i++) {
+	todoList.push({
+		title: `待办事项 ` + i,
+		isChecked: false,
+	});
+	latestNewList.push({
+		time: new Date(new Date().getTime() + i * 24 * 3600 * 1000).Format("yyyy-MM-dd"),
+		title: `今日最新新闻` + i,
+	});
+}

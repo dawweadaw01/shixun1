@@ -20,7 +20,7 @@ public class Result<T> {
         return new Result(ResultCode.FAILED.code, message, data);
     }
     public static Result failed(String message) {
-        return new Result(ResultCode.FAILED.code, "failed");
+        return new Result(ResultCode.FAILED.code, message);
     }
 
     public Result() {

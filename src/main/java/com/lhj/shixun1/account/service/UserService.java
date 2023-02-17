@@ -17,4 +17,6 @@ public interface UserService {
     User getUserById(int id);
 
     PageInfo<User> getUserBySearch(Search search);
+
+    Result<User> getUserByParams(User user);
 }

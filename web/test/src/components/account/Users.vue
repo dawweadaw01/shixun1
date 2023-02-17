@@ -1,9 +1,10 @@
 <template>
-	<div><h3>This is HelloWorld13 page.</h3></div>
+  <div>This is users table.</div>
 </template>
+
 <script>
 export default {
-	name: "HelloWorld3",
+  name: "Users",
 };
 </script>
 <style></style>

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/api/account")
+//@RequestMapping("/api/account")
 public class UserController {
     @Resource
     private UserService userService;
@@ -64,6 +64,12 @@ public class UserController {
     public PageInfo<User> getUserBySearch(@RequestBody Search search) {
         return userService.getUserBySearch(search);
     }
-
-
+    /**
+     * 127.0.0.1/api/account/login ---- post
+     * {"userName":"cxk", "password":"111111"}
+     */
+    @PostMapping(value="/login", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Result<User> getUserByParams(@RequestBody User user) {
+        return userService.getUserByParams(user);
+    }
 }

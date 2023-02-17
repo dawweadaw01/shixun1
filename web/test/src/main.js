@@ -58,6 +58,19 @@ import "font-awesome/css/font-awesome.min.css";
 
 Vue.config.productionTip = false;
 
+// 使用 router.beforeEach 注册一个全局前置守卫，进行登录验证
+router.beforeEach((to, from, next) => {
+	if (to.meta.requireAuth) {
+		if (VuexStore.getters.isLogin) {
+			next();
+		} else {
+			next("/login");
+		}
+	} else {
+		next();
+	}
+});
+
 new Vue({
 	router,
 	render: (h) => h(App),

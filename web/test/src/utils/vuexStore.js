@@ -31,12 +31,7 @@ export default new Vuex.Store({
 	getters: {
 		// 判断用户是否登录
 		isLogin: function (state) {
-			/**
-			 * 使用 jwt 令牌判断用户是否登录
-			 * token 为空
-			 * 当前时间大于令牌过期时间
-			 */
-			return state.token != "" && new Date().getTime() <= state.token.exp * 1000;
+			return state.token != "";
 		},
 	},
 	/**
@@ -53,26 +48,13 @@ export default new Vuex.Store({
 		},
 		// 变更 token 值
 		setToken: function (state, payload) {
-			// if (payload == "") {
-			// 	// Cookie.remove(TOKEN_KEY);
-			// 	Storage.removeItemForLs(TOKEN_KEY);
-			// 	Storage.removeItemForLs(TOKEN_OBJECT_KEY);
-			// 	state.token = "";
-			// } else {
-			// 	/**
-			// 	 * 保存 Token 信息，以便提交到微服务验证
-			// 	 */
-			// 	// Cookie.setToken(TOKEN_KEY, payload);
-			// 	Storage.setItemForLs(TOKEN_KEY, payload);
-			// 	/**
-			// 	 * 通过 window.atob 方法来解码 base64 数据，将 Token 还原成 Token 对象
-			// 	 * { aud: "1", id: 1, exp: 1650949671, iat: 1650946071 }
-			// 	 * 将 Token 对象存储在 localStorage、state 中
-			// 	 */
-			// 	var tokenObject = JSON.parse(window.atob(payload.split(".")[1]));
-			// 	Storage.setItemForLs(TOKEN_OBJECT_KEY, tokenObject);
-			// 	state.token = tokenObject;
-			// }
+			if (payload == "") {
+				Storage.removeItemForLs(TOKEN_OBJECT_KEY);
+				state.token = "";
+			} else {
+				Storage.setItemForLs(TOKEN_OBJECT_KEY, payload);
+				state.token = payload;
+			}
 		},
 	},
 });

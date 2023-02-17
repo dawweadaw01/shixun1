@@ -51,4 +51,6 @@ public interface UserDao {
             "on au.id = ebu.user_id where ebu.books_id = #{booksId}")
     List<User> getUsersByBooksId(int booksId);
 
+    @Select("select * from account_user where user_name=#{userName} and password=#{password} limit 1")
+    User getUserByParams(@Param("userName") String userName, @Param("password") String password);
 }

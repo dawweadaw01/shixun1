@@ -1,0 +1,227 @@
+.home {
+	height: 100% - 30px;
+	margin-top: 40px;
+	overflow: visible;
+}
+.stat {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 230px;
+}
+.stat-user {
+	position: relative;
+	width: 300px;
+	background-color: #f5f5f5;
+	-webkit-box-shadow: 2px 2px 5px #ccc;
+	box-shadow: 2px 2px 5px #ccc;
+}
+.stat-user__title {
+	height: 100px;
+	background-color: #459f75;
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 70px;
+}
+.stat-user__detail {
+	padding-top: 50px;
+	color: #666;
+	font-size: 13px;
+	text-align: center;
+}
+.stat-user__portrait {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 80px;
+	height: 80px;
+	border-radius: calc(80px / 2);
+	border: 3px solid white;
+	-webkit-box-shadow: 0 0 5px #ccc;
+	box-shadow: 0 0 5px #ccc;
+	margin-top: -55px;
+	margin-left: -40px;
+}
+.stat-info {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	margin-left: 20px;
+}
+.el-row {
+	position: relative;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.el-row + .el-row {
+	margin-top: 10px;
+}
+.stat-info__item {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 110px;
+	-webkit-box-shadow: 2px 2px 5px #ccc;
+	box-shadow: 2px 2px 5px #ccc;
+	background-color: #f5f5f5;
+}
+.stat-info__icon {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 80px;
+	color: white;
+}
+.stat-info__icon [class*="el-icon"] {
+	font-size: 50px;
+}
+[class^="el-icon-"],
+[class*=" el-icon-"] {
+	font-family: "element-icons" !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	vertical-align: baseline;
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.stat-info__detail {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.stat-info__total {
+	color: #0085d0;
+	font-size: 27px;
+	font-weight: bold;
+}
+.stat-info__title {
+	color: #666;
+	font-size: 12px;
+}
+.margin-t-20 {
+	margin-top: 20px;
+}
+.list {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: calc(100% - 250px);
+}
+[class*="el-col-"] {
+	float: left;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.el-card.is-always-shadow {
+	-webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.el-card {
+	border-radius: 4px;
+	border: 1px solid #ebeef5;
+	background-color: #fff;
+	overflow: hidden;
+	color: #303133;
+	-webkit-transition: 0.3s;
+	transition: 0.3s;
+}
+.el-card__header {
+	padding: 18px 20px;
+	border-bottom: 1px solid #ebeef5;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: left;
+}
+.el-card__header span {
+	color: #3b7459;
+}
+.el-card .el-icon-plus,
+.el-icon-more {
+	float: right;
+	/* color: #f56c6c; */
+	font-weight: bold;
+	cursor: pointer;
+}
+[class^="el-icon-"],
+[class*=" el-icon-"] {
+	font-family: "element-icons" !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	vertical-align: baseline;
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.el-card__body {
+	padding: 20px;
+	text-align: left;
+}
+.el-card__body p {
+	border-bottom: 1px solid #e5e5e5;
+	color: #555;
+	font-size: 15px;
+	line-height: 30px;
+}
+.el-card__body p span {
+	margin-left: 5px;
+}
+.el-checkbox {
+	color: #606266;
+	font-weight: 500;
+	font-size: 14px;
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	padding: 0;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.el-checkbox__input {
+	white-space: nowrap;
+	cursor: pointer;
+	outline: none;
+	display: inline-block;
+	line-height: 1;
+	position: relative;
+	vertical-align: middle;
+}
+.latest-new-list__time {
+	color: #666;
+	font-size: 14px;
+}

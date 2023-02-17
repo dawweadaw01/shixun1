@@ -19,8 +19,7 @@ export const TOKEN_KEY = "Token";
 export const TOKEN_OBJECT_KEY = "TokenObject";
 
 // 定义全局变量，本机只能本地测试，生产环境不可用
-// export const domain = "http://127.0.0.1:8888";
-export const domain = "http://538b537e25.zicp.vip:13595";
+export const domain = "http://127.0.0.1";
 
 // 请求拦截器
 axios.interceptors.request.use(
@@ -36,43 +35,43 @@ axios.interceptors.request.use(
 );
 
 // 响应拦截器
-axios.interceptors.response.use(
-	(response) => {
-		const res = response.data;
-		if (response.status == FORBIDDEN_CODE || response.status == UNAUTHORIZED_CODE) {
-			// 状态码为 401、403，说明 jwt 过期
-			// 清除 Storage、Cookie 中的 JWT 令牌，并跳转到登录页面
-			Storage.removeItemForLs(TOKEN_KEY);
-			Storage.removeItemForLs(TOKEN_OBJECT_KEY);
-			window.location.href = "/login";
-		} else if (response.status == NOT_FOUND_CODE || response.status == INTERNAL_SERVER_ERROR_CODE) {
-			Message({
-				message: res.message || "Error",
-				type: "error",
-				duration: 5 * 1000,
-			});
-			return Promise.reject(new Error(res.message || "Error"));
-		} else {
-			return res;
-		}
-	},
-	(error) => {
-		console.log("err" + error);
-		if (error.response && (error.response.status == FORBIDDEN_CODE || error.response.status == UNAUTHORIZED_CODE)) {
-			// 状态码为 401、403，说明 jwt 过期
-			// 清除 Storage、Cookie 中的 JWT 令牌，并跳转到登录页面
-			Storage.removeItemForLs(TOKEN_KEY);
-			Storage.removeItemForLs(TOKEN_OBJECT_KEY);
-			window.location.href = "/login";
-		}
-		Message({
-			message: error.message,
-			type: "error",
-			duration: 5 * 1000,
-		});
-		return Promise.reject(error);
-	}
-);
+// axios.interceptors.response.use(
+// 	(response) => {
+// 		const res = response.data;
+// 		if (response.status == FORBIDDEN_CODE || response.status == UNAUTHORIZED_CODE) {
+// 			// 状态码为 401、403，说明 jwt 过期
+// 			// 清除 Storage、Cookie 中的 JWT 令牌，并跳转到登录页面
+// 			Storage.removeItemForLs(TOKEN_KEY);
+// 			Storage.removeItemForLs(TOKEN_OBJECT_KEY);
+// 			window.location.href = "/login";
+// 		} else if (response.status == NOT_FOUND_CODE || response.status == INTERNAL_SERVER_ERROR_CODE) {
+// 			Message({
+// 				message: res.message || "Error",
+// 				type: "error",
+// 				duration: 5 * 1000,
+// 			});
+// 			return Promise.reject(new Error(res.message || "Error"));
+// 		} else {
+// 			return res;
+// 		}
+// 	},
+// 	(error) => {
+// 		console.log("err" + error);
+// 		if (error.response && (error.response.status == FORBIDDEN_CODE || error.response.status == UNAUTHORIZED_CODE)) {
+// 			// 状态码为 401、403，说明 jwt 过期
+// 			// 清除 Storage、Cookie 中的 JWT 令牌，并跳转到登录页面
+// 			Storage.removeItemForLs(TOKEN_KEY);
+// 			Storage.removeItemForLs(TOKEN_OBJECT_KEY);
+// 			window.location.href = "/login";
+// 		}
+// 		Message({
+// 			message: error.message,
+// 			type: "error",
+// 			duration: 5 * 1000,
+// 		});
+// 		return Promise.reject(error);
+// 	}
+// );
 
 /**
  * 封装 get 请求

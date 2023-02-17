@@ -73,4 +73,14 @@ public class UserServiceImpl implements UserService{
         PageHelper.startPage(search.getCurrentPage(), search.getPageSize());
         return new PageInfo<>(Optional.ofNullable(userDao.getUserBySearch(search)).orElse(Collections.emptyList()));
     }
+
+    @Override
+    public Result<User> getUserByParams(User user) {
+        User temp = userDao.getUserByParams(
+                user.getUserName(), MD5Util.getMD5(user.getPassword()));
+        if (temp != null) {
+            return Result.ok(temp);
+        }
+        return Result.failed("用户名或密码输入错误。");
+    }
 }
