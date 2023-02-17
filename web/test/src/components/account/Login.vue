@@ -62,7 +62,7 @@ export default {
           .fetch_("/login", "post", this.user)
           .then((result) => {
             console.log(result);
-            if (result.data.code == this.$Request.OK_CODE) {
+            if (result.data.code === this.$Request.OK_CODE) {
               // 登录成功后将用户对象设置到状态管理器里面
               this.$VuexStore.commit("setToken", result.data);
               this.$router.push("/");
