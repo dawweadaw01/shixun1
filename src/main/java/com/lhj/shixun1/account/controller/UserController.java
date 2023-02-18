@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 @RestController
-//@RequestMapping("/api/account")
+@RequestMapping("/api/account")
 public class UserController {
     @Resource
     private UserService userService;
@@ -50,8 +50,8 @@ public class UserController {
      * @param id
      * @return
      */
-    @GetMapping(value = "/user/{id}",consumes = MediaType.APPLICATION_JSON_VALUE)
-    public User getUserById(@PathVariable("id") int id) {
+    @GetMapping(value = "/user/{id}")
+    public User getUserById(@PathVariable int id) {
         return userService.getUserById(id);
     }
 

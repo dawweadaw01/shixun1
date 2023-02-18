@@ -7,7 +7,7 @@ export default new Router({
 	mode: "history", // history 模式去除地址栏 # 号
 	routes: [
 		{
-			// http://127.0.0.1:8081/login
+			// http://127.0.0.1:8080/login
 			path: "/login",
 			name: "登录",
 			component: () => import("@/components/account/Login.vue"),

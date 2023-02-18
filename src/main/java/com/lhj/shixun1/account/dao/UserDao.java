@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 @Mapper
 public interface UserDao {
-    @Insert("insert into account_user (user_name,password,create_time,update_time) " +
-            "values (#{userName}, #{password},#{createTime},#{updateTime})")
+    @Insert("insert into account_user (user_name,password,user_image,create_time,update_time) " +
+            "values (#{userName}, #{password},#{userImage},#{createTime},#{updateTime})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void insertUser(User user);
 
@@ -20,7 +20,7 @@ public interface UserDao {
 
     //修改名字，密码和更新时间
     @Update("update account_user set user_name = #{userName}, password = #{password}," +
-            " update_time = #{updateTime} where id = #{id}")
+            "user_image=#{userImage}, update_time = #{updateTime} where id = #{id}")
     void updateUser(User user);
 
     @Delete("delete from account_user where id = #{id}")

@@ -59,15 +59,14 @@ export default {
         }
 
         this.$Request
-          .fetch_("/login", "post", this.user)
+          .fetch_("/api/account/login", "post", this.user)
           .then((result) => {
-            console.log(result);
-            if (result.data.code === this.$Request.OK_CODE) {
+            if (result.code == this.$Request.OK_CODE) {
               // 登录成功后将用户对象设置到状态管理器里面
               this.$VuexStore.commit("setToken", result.data);
               this.$router.push("/");
             } else {
-              this.$message.error(result.data.message);
+              this.$message.error(result.message);
               return false;
             }
           })

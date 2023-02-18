@@ -13,13 +13,21 @@ import java.time.LocalDateTime;
 public class User extends AbstractEntity {
     private String userName;
     private String password;
+    private String userImage;
 
     public User() {
     }
 
-    public User(int id, LocalDateTime createTime, LocalDateTime updateTime, String userName, String password) {
+    public User(String userName, String password, String userImage) {
+        this.userName = userName;
+        this.password = password;
+        this.userImage = userImage;
+    }
+
+    public User(int id, LocalDateTime createTime, LocalDateTime updateTime, String userName, String password, String userImage) {
         super(id, createTime, updateTime);
         this.userName = userName;
         this.password = password;
+        this.userImage = userImage;
     }
 }

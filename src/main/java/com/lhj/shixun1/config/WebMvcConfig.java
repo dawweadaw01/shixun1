@@ -35,18 +35,17 @@ public class WebMvcConfig implements WebMvcConfigurer {
      * 配置静态资源
      * @param registry
      */
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        String os = System.getProperty("os.name");
-        if (os.toLowerCase().startsWith("win")) {
-            registry.addResourceHandler("/static/**")
-                    .addResourceLocations(ResourceUtils.FILE_URL_PREFIX +
-                            resourceBean.getWindowLocation());
-        }else {
-            registry.addResourceHandler("/static/**")
-                    .addResourceLocations(ResourceUtils.FILE_URL_PREFIX +
-                            resourceBean.getLinuxLocation());
-        }
-
-    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        String os = System.getProperty("os.name");
+//        if (os.toLowerCase().startsWith("win")) {
+//            registry.addResourceHandler("/static/**")
+//                    .addResourceLocations(ResourceUtils.FILE_URL_PREFIX +
+//                            resourceBean.getWindowLocation());
+//        }else {
+//            registry.addResourceHandler("/static/**")
+//                    .addResourceLocations(ResourceUtils.FILE_URL_PREFIX +
+//                            resourceBean.getLinuxLocation());
+//        }
+//    }
 }

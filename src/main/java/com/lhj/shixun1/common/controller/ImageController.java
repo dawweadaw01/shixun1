@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 @RestController
 @RequestMapping(value = "/api/common")
@@ -19,8 +21,8 @@ public class ImageController {
      *
      */
     @PostMapping(value = "/image/{imageTypeName}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public Result<String> uploadImage(@RequestParam MultipartFile mf,
-                                      @PathVariable String imageTypeName) {
-        return imageService.uploadImage(mf, imageTypeName);
+    public Result<String> uploadImage(@RequestParam MultipartFile file,
+                                      @PathVariable String imageTypeName) throws FileNotFoundException {
+        return imageService.uploadImage(file, imageTypeName);
     }
 }

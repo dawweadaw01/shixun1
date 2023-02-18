@@ -33,7 +33,6 @@ export default {
 			// 改变页长，通过 $emit 函数，将页长传递给父组件
 			this.$emit("emitPageData", {
 				pageSize: obj,
-				pageNum: 1,
 			});
 		},
 		changeCurrentPage: function (obj) {
