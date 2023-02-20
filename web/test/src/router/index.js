@@ -14,6 +14,13 @@ export default new Router({
 			meta: { requireAuth: false },
 		},
 		{
+			// http://127.0.0.1:8080/economy/property/accounts
+			path: "/economy/property/accounts",
+			name: "账薄",
+			component: () => import("@/components/property/Books.vue"),
+			meta: { requireAuth: false },
+		},
+		{
 			// http://127.0.0.1:8080/
 			path: "/",
 			name: "Root",

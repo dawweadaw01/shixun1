@@ -32,7 +32,6 @@
           value-format="yyyy-MM-dd HH:mm:SS"
         ></el-date-picker>
       </el-form-item> -->
-
       <el-form-item label="图片">
         <el-upload
           :action="fileUploadInfo.action"
@@ -175,12 +174,13 @@ export default {
     dialogData: function (newVal, oldVal) {
       if (newVal.id == 0) {
         if (typeof this.$refs["model"] != "undefined") {
-          // 重置 model
+          //重置 model
           this.model = {
             id: 0,
             userName: "",
             password: "",
             userImage: "",
+            images: [],
           };
           this.$refs["model"].resetFields();
         }
@@ -190,16 +190,18 @@ export default {
         this.$Request
           .fetch(url)
           .then((result) => {
-            console.log(result);
-            this.model = result;
             var image = {};
-            image.url = this.$Request.domain + this.model.userImage;
-            image.src = this.$Request.domain + this.model.userImage;
+            image.url = this.$Request.domain + result.userImage;
+            image.src = this.$Request.domain + result.userImage;
+            console.log(image);
             this.model.images.push(image);
+            this.model = result;
+            console.log(this.model);
+            console.log(this.model.images);
           })
           .catch((error) => {
             console.log(error);
-            //this.$message.info("没有数据。");
+            this.$message.info("没有数据。");
           });
       }
     },

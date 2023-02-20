@@ -70,6 +70,7 @@ public class UserServiceImpl implements UserService{
     public PageInfo<User> getUserBySearch(Search search) {
         //设置分页参数
         search.initSearch();
+        //开启分页
         PageHelper.startPage(search.getCurrentPage(), search.getPageSize());
         return new PageInfo<>(Optional.ofNullable(userDao.getUserBySearch(search)).orElse(Collections.emptyList()));
     }

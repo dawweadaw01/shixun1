@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ImageType {
     PROFILE("profile", 300, 300, 1024),
+
     TEST("test", 300, 300, 1024)
 
     ;

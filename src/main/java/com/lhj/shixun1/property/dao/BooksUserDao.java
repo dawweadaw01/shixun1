@@ -16,4 +16,6 @@ public interface BooksUserDao {
 
     @Delete("delete from economy_books_user where books_id = #{booksId}")
     void deleteBooksUserByBooksId(int booksId);
+
+
 }
